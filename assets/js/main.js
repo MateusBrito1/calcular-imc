@@ -3,22 +3,15 @@ const form = document.querySelector ('#form')
 
 form.addEventListener('submit', function (event) {
     event.preventDefault();
+    addValores();
+    setandoResposta();
+    setandoNivel();
+    form.reset();
 });
 
 
 let peso, altura; // Declaração global das variaveis peso e altura
 
-try {
-    addValores();
-    setandoResposta();
-    setandoNivel();
-    form.reset();
-} catch (error) {
-    console.log('Ocorreu um erro:', error);
-
-} finally {
-
-}
 
 //Adicionando valores e referenciando aos inputs.
 function addValores(){
@@ -31,10 +24,6 @@ function addValores(){
 
 //Metodo de calculo do IMC.
 function getIMC(){
-    if(altura === 0){
-        throw 'A altura não pode ser zero.';
-    }
-
 
     const imc = peso / altura ** 2;
     return imc.toFixed(2);
